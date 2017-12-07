@@ -3,6 +3,7 @@ set -e
 set -x
 
 if [ -x /usr/bin/yum ]; then
+  yum -y update
   yum -y install gcc gcc-c++ vim-common git wget cmake make binutils glibc-devel libXft-devel librsvg2 desktop-file-utils
   # vim-common provides xxd
 elif [ -x /usr/bin/apt-get ]; then
