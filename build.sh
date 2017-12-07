@@ -1,10 +1,11 @@
 #!/bin/bash
-
 set -e
 set -x
 
-if [ -x /usr/bin/apt-get ]; then
-  sudo apt-get install build-essential cmake libx11-dev libxft-dev libfontconfig1-dev librsvg2-bin
+if [ -x /usr/bin/yum ]; then
+  yum -y install gcc gcc-c++ git wget cmake make binutils glibc-devel libXft-devel librsvg2 desktop-file-utils
+elif [ -x /usr/bin/apt-get ]; then
+  sudo apt-get install build-essential git wget cmake libx11-dev libxft-dev libfontconfig1-dev librsvg2-bin
 fi
 
 common_FLAGS="-fstack-protector -ffunction-sections -fdata-sections -D_FORTIFY_SOURCE=2"
